@@ -2,7 +2,7 @@
 #![deny(unsafe_code)]
 #![warn(rust_2018_idioms)]
 #![doc(html_root_url = "https://docs.rs/indexmap/1/")]
-#![no_std]
+#![cfg_attr(not(feature = "std"), no_std)]
 
 //! [`IndexMap`] is a hash table where the iteration order of the key-value
 //! pairs is independent of the hash values of the keys.
@@ -77,17 +77,17 @@
 //!
 //! [def]: map/struct.IndexMap.html#impl-Default
 
-#[cfg(not(has_std))]
+#[cfg(not(feature = "std"))]
 extern crate alloc;
 
-#[cfg(has_std)]
+#[cfg(feature = "std")]
 #[macro_use]
 extern crate std;
 
-#[cfg(not(has_std))]
+#[cfg(not(feature = "std"))]
 use alloc::vec::{self, Vec};
 
-#[cfg(has_std)]
+#[cfg(feature = "std")]
 use std::vec::{self, Vec};
 
 #[macro_use]

@@ -1,9 +1,9 @@
 use rayon::prelude::*;
 
-#[cfg(not(has_std))]
+#[cfg(not(feature = "std"))]
 use alloc::collections::LinkedList;
 
-#[cfg(has_std)]
+#[cfg(feature = "std")]
 use std::collections::LinkedList;
 
 use crate::vec::Vec;

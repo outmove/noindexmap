@@ -1,5 +1,5 @@
 [package]
-name = "indexmap"
+name = "noindexmap"
 edition = "2018"
 version = "1.6.1"
 authors = [
@@ -25,9 +25,8 @@ indexmap.
 keywords = ["hashmap", "no_std"]
 categories = ["data-structures", "no-std"]
 
-build = "build.rs"
-
 [lib]
+name = "indexmap"
 bench = false
 
 [build-dependencies]
@@ -51,6 +50,8 @@ fxhash = "0.2.1"
 serde_derive = "1.0"
 
 [features]
+default = ["std"]
+
 # Serialization with serde 1.0
 serde-1 = ["serde"]
 
